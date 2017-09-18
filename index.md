@@ -1,37 +1,49 @@
-## Welcome to GitHub Pages
+## Instalar la aplicación nativa de Postman
 
-You can use the [editor on GitHub](https://github.com/alejobit/alejobit.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+Descargar y descomprimir
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```bash
+wget https://dl.pstmn.io/download/latest/linux64 -O Postman.tar.gz
+sudo tar -xzf Postman.tar.gz -C /opt
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Crear entrada en el escritorio
 
-### Jekyll Themes
+```bash
+cat > ~/.local/share/applications/postman.desktop <<EOL
+[Desktop Entry]
+Encoding=UTF-8
+Name=Postman
+Exec=/opt/Postman/Postman
+Icon=/opt/Postman/resources/app/assets/icon.png
+Terminal=false
+Type=Application
+Categories=Development;
+EOL
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/alejobit/alejobit.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+***
 
-### Support or Contact
+## Respaldar y restaurar bases de datos MySQL
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Para realizar el respaldo
+
+```bash
+# Texto plano
+mysqldump -u {user} -p {database} > {database}$(date -I).sql
+
+# Con compresión
+mysqldump -u {user} -p {database} | gzip > {database}$(date -I).sql.gz
+```
+
+Para la restauración
+
+```bash
+# Texto plano
+mysql -u {user} -p {database} < {database}.sql
+
+# Con compresión
+gzip -dc < {database}.sql.gz | mysql -u {user} -p {database}
+```
+
+Reemplazar `{user}` y `{database}` con el usuario y la base de datos correspondiente.

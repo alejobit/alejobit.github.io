@@ -1,3 +1,9 @@
+## Bash: Buscar y remplazar una cadena de texto simple en un archivo
+
+```bash
+sed 's/old_string/new_string/g' file.txt
+```
+
 ## Instalar la aplicación nativa de Postman
 
 Descargar y descomprimir
@@ -24,7 +30,7 @@ EOL
 
 ***
 
-## Respaldar y restaurar bases de datos MySQL
+## MySQL: Respaldar y restaurar bases de datos
 
 Para realizar el respaldo
 

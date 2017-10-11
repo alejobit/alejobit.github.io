@@ -1,8 +1,34 @@
+## MySQL: Gestión de usuarios
+
+Para crear o eliminar usuarios
+
+```sql
+CREATE USER 'user'@'host' IDENTIFIED BY 'password';
+
+DROP USER 'user'@'host';
+```
+
+Para asignar o revocar permisos
+
+```sql
+GRANT [permission] ON [database].[table] TO '[user]'@'host';
+
+REVOKE [permission] ON [database].[table] FROM '[user]'@'host';
+
+FLUSH PRIVILEGES;
+```
+
+Los tipos de permisos son: `ALL PRIVILEGES`, `CREATE`, `DROP`, `DELETE`, `INSERT`, `SELECT`, `UPDATE`, `GRANT OPTION`,
+
+***
+
 ## Bash: Buscar y remplazar una cadena de texto simple en un archivo
 
 ```bash
 sed 's/old_string/new_string/g' file.txt
 ```
+
+***
 
 ## Instalar la aplicación nativa de Postman
 

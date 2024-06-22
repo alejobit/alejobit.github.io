@@ -2,8 +2,12 @@
 ---
 
 @import "{{ site.theme }}";
-@import "https://fonts.googleapis.com/css?family=Cantarell";
+@import "https://fonts.googleapis.com/css?family=Cantarell&family=Ubuntu+Mono";
 
 body {
     font-family: "Cantarell", sans-serif;
+}
+
+code, pre {
+    font-family: "Ubuntu Mono", monospace;
 }
